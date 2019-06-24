@@ -42,7 +42,10 @@ class GlogSeverity : public google::LogSink {
   std::string log_filepath_;
   std::ofstream out_;
 };
-
+/*
+ DEFINE with parameter pack can be added, so
+ GLOG(my_severity) << a << b << ... << z; is possible
+*/
 void GLOG(const std::string& message, google::LogSink* sink) {
   google::AddLogSink(sink);
   LOG(INFO) << message;
